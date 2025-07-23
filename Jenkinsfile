@@ -56,7 +56,7 @@ pipeline {
     stage('Deployment in dev'){
       environment
       {
-        KUBECONFIG = credentials("kubernetes-config") // we retrieve kubeconfig from secret file called kubernetes-config saved on jenkins
+        KUBECONFIG = credentials("config") // we retrieve kubeconfig from secret file called config saved on jenkins
       }
       steps {
         script {
@@ -76,7 +76,7 @@ pipeline {
 
     stage('Deployment in staging') {
       environment {
-        KUBECONFIG = credentials("kubernetes-config") // we retrieve kubeconfig from secret file called kubernetes-config saved on jenkins
+        KUBECONFIG = credentials("config") // we retrieve kubeconfig from secret file called config saved on jenkins
       }
       steps {
         script {
@@ -96,7 +96,7 @@ pipeline {
 
     stage('Deployment in prod'){
       environment {
-        KUBECONFIG = credentials("kubernetes-config") // we retrieve kubeconfig from secret file called kubernetes-config saved on jenkins
+        KUBECONFIG = credentials("config") // we retrieve kubeconfig from secret file called config saved on jenkins
       }
       steps {
       // Create an Approval Button with a timeout of 15 minutes.
